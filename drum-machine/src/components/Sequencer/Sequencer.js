@@ -2,6 +2,12 @@ import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import Sequence from "./Sequence";
 import Timeline from "./Timeline";
+import styled from "styled-components";
+
+const LedSpacer = styled.div`
+  width: 100%;
+  height: 10px;
+`;
 
 class Sequencer extends React.Component {
   constructor(props) {
@@ -14,14 +20,20 @@ class Sequencer extends React.Component {
   render() {
     return (
       <Container>
-        <Timeline currentBeat={this.props.currentBeat} 
-        sequenceLength={this.props.sequenceLength}
-        />
-        {[...Array(this.props.tracks).keys()].map((value, index) => {
-          return <Sequence currentBeat={this.props.currentBeat}
+        <LedSpacer />
+        <Timeline
+          currentBeat={this.props.currentBeat}
           sequenceLength={this.props.sequenceLength}
-          //needs to be passed sound function/file
-          />
+        />
+        <LedSpacer />
+        {[...Array(this.props.tracks).keys()].map((value, index) => {
+          return (
+            <Sequence
+              currentBeat={this.props.currentBeat}
+              sequenceLength={this.props.sequenceLength}
+              //needs to be passed sound function/file
+            />
+          );
         })}
       </Container>
     );

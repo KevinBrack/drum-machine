@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import styled from "styled-components";
 
@@ -24,7 +22,7 @@ class Timeline extends React.Component {
     return (
       <LedContainer>
         {[...Array(this.props.sequenceLength).keys()].map((value, index) => {
-          return <Led id={index} active={this.props.currentBeat === index} />
+          return <Led id={index} active={this.props.currentBeat === index} />;
         })}
       </LedContainer>
     );
